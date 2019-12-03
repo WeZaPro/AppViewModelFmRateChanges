@@ -20,9 +20,6 @@ import com.taweesak.appviewmodelfmratechange.Model.Model;
 import com.taweesak.appviewmodelfmratechange.R;
 import com.taweesak.appviewmodelfmratechange.ViewModel.PageViewModel;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class BFragment extends Fragment {
 
     PageViewModel pageViewModel;
@@ -47,7 +44,6 @@ public class BFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_b, container, false);
 
-
         return view;
     }
 
@@ -56,15 +52,26 @@ public class BFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         findView(view);
-        
-        pageViewModel.getRate().observe(getActivity(), new Observer<Model>() {
-            @Override
-            public void onChanged(Model model) {
-                //Toast.makeText(getActivity(),"text : "+s,Toast.LENGTH_SHORT).show();
-                textView.setText(""+model.getRates());
-                changeFlag(model);
-            }
-        });
+                pageViewModel.getRate().observe(getActivity(), new Observer<Model>() {
+                    @Override
+                    public void onChanged(Model model) {
+
+                         //try{
+                             if(model.getRates()>0){
+                                 //Toast.makeText(getActivity(),"text : "+s,Toast.LENGTH_SHORT).show();
+                                 textView.setText(""+model.getRates());
+                                 changeFlag(model);
+                             }else if (model.getRates() <= 0){
+                                 textView.setText(" ค่าที่ใส่ต้องมากกว่า 0 เท่านั้น");
+                                 imageView.setImageResource(R.drawable.my_image2);
+                             }else {
+                                 textView.setText(" ค่าที่ใส่ต้องเป็นตัวเลขเท่านั้น");
+                             }
+                         //}catch (NumberFormatException e){
+                         //    textView.setText(" ค่าที่ใส่ต้องเป็นตัวเลขเท่านั้น");
+                         //}
+                    }
+                });
     }
 
     private void changeFlag(Model model) {
