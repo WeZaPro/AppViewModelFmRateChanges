@@ -3,6 +3,7 @@ package com.taweesak.appviewmodelfmratechange.Model;
 import java.util.regex.Pattern;
 
 public class Model {
+    // TODO: create model data
 
     double rates;
     int choice;

@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModel;
 
 public class PageViewModel extends ViewModel {
 
+    // TODO: Use the ViewModel
     private MutableLiveData<Model> mRate = new MutableLiveData<>();
 
 

@@ -38,6 +38,7 @@ public class AFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // TODO: create onCreate + create viewModel Obj
         // init ViewModel
         pageViewModel = ViewModelProviders.of(requireActivity()).get(PageViewModel.class);
     }
@@ -45,6 +46,7 @@ public class AFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        // TODO: create view
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_a, container, false);
         ;
@@ -54,6 +56,8 @@ public class AFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        // TODO: create onViewCreate + create event
 
         findView(view);
 
